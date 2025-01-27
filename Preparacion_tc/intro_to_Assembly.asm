@@ -1,4 +1,3 @@
-%include "io.inc"
 
 section .data
 ; declare variable, and initialize value
