@@ -15,8 +15,12 @@ _start:
     mov ebx, 0
     int 0x80
 func:
+    ; Prologue
+    ; ------------
+    push ebp ; keep ebp
     mov ebp, esp
     sub esp, 2
+    ; ------------
     mov [esp], byte 'H'
     mov [esp + 1], byte 'i'
     mov eax, 4
@@ -24,7 +28,11 @@ func:
     mov ecx, esp
     mov edx, 2
     int 0x80
+    ; Epilogue
+    ; -------------
     mov esp ,ebp
+    pop ebp ; restore ebp
     ret
+    ; --------
     
     

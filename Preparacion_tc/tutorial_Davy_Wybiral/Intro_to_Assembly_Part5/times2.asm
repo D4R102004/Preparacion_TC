@@ -10,17 +10,25 @@ _start:
     mov ebp, esp; for correct debugging
     ;write your code here
     xor eax, eax
-    ret
+    push 21
+    call times2
+    mov ebx, eax
+    mov eax, 1
+    int 0x80
+    
 times2:
     ; Prologue
     ; -----------
     push ebp
     mov ebp, esp
     ; ------------
-    
+    mov eax, [ebp + 8]
+    add eax, eax
     ; Epilogue
     ; ------------
     mov esp, ebp
     pop ebp
     ret
     ; -----------
+    
+    
